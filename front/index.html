@@ -11,13 +11,14 @@
             integrity="sha512-KfkfwYDsLkIlwQp6LFnl8zNdLGxu9YAA1QvwINks4PhcElQSvqcyVLLD9aMhXd13uQjoXtEKNosOWaZqXgel0g=="crossorigin="anonymous"
             referrerpolicy="no-referrer" />
         <link rel="stylesheet" href="./assets/css/style.css">
+        <script defer src="./assets/js/helper.js"></script>
     </head>
     <body>
         <section class="hero is-success is-ctrl-hero">
             <div class="hero-body">
                 <p class="title">
                     <span class="icon">
-                        <i class="fa-regular fa-copy"></i>
+                        <i class="fa-regular fa-copy is-ctrl-logo"></i>
                     </span>
                     CtrlC-CtrlV
                 </p>
@@ -30,7 +31,7 @@
         <section class="section">
             <div class="container">
 
-                <p class="subtitle">
+                <p class="subtitle is-ctrl-color">
                     Tous vos projets <strong>Saagie</strong>!
                 </p>
                 <table class="table is-ctrl-table">
@@ -49,21 +50,192 @@
                             <td>8321e13c-892a-4481-8552-5be4b6cc5df4</td>
                             <td>Regina</td>
                             <td>
-                                <button class="button">
-                                    <span class="icon is-small">
-                                      <i class="fas fa-bold"></i>
+                                <button class="button is-ctrl-no-border
+                                    js-modal-trigger"
+                                    data-target="ctrl-modal-copy">
+                                    <span class="icon is-small is-ctrl-color">
+                                        <i class="fa-regular fa-copy"></i>
                                     </span>
-                                  </button>
-                                <i class="fa-regular fa-copy"></i>
-                                <i class="fa-regular fa-copy"></i>
-                                <i class="fa-regular fa-copy"></i>
-                                <i class="fa-regular fa-copy"></i>
+                                </button>
+                                <button class="button">
+                                    <span class="icon is-small is-ctrl-color">
+                                        <i class="fa-solid fa-download"></i>
+                                    </span>
+                                </button>
+                                <button class="button is-ctrl-no-border
+                                js-modal-trigger"
+                                data-target="ctrl-modal-restore">
+                                    <span class="icon is-small
+                                        is-ctrl-color">
+                                        <i class="fa-solid
+                                            fa-arrows-rotate"></i> </span>
+                                </button>
 
-                            </td>
-                        </tr> 
-                    </tbody>
-                </table>
+                                <button class="button is-ctrl-no-border
+                                js-modal-trigger"
+                                data-target="ctrl-modal-audit">
+                                    <span class="icon is-small
+                                        is-ctrl-color">
+                                        <i class="fa-solid fa-circle-info"></i>
+                                    </button>
+
+
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </section>
+            <div id="ctrl-modal-copy" class="modal">
+                <div class="modal-background"></div>
+                <div class="modal-card">
+                    <header class="modal-card-head">
+                        <p class="modal-card-title is-ctrl-color">Copier un
+                            projet</p>
+                        <button class="delete" aria-label="close"></button>
+                    </header>
+                    <section class="modal-card-body">
+                        <!-- Content ... -->
+                        <div class="field">
+                            <label class="label">Ancien nom</label>
+                            <div class="control">
+                                <input class="input is-ctrl-input" type="text"
+                                    placeholder="Text input" disabled>
+                            </div>
+                        </div>
+
+                        <div class="field">
+                            <label class="label">Nouveau nom</label>
+                            <div class="control">
+                                <input class="input is-ctrl-input" type="text"
+                                    placeholder="Text input">
+                            </div>
+                             
+                        </div>
+
+                        
+
+                        <div class="field">
+                            <div class="control">
+                                <label class="checkbox">
+                                    <input type="checkbox" checked>
+                                    <strong>Remplacer</strong> si un projet de même nom existe.
+                                </label>
+                            </div>
+                        </div>
+
+                     
+                    </section>
+                    <footer class="modal-card-foot field is-grouped is-grouped-right">
+                        <button class="button is-ctrl-btn-cancel">Cancel</button>
+                        <button class="button is-ctrl-btn">Exécuter</button>
+                    </footer>
+                </div>
             </div>
-        </section>
-    </body>
-</html>
+            <div id="ctrl-modal-restore" class="modal">
+                <div class="modal-background"></div>
+                <div class="modal-card">
+                    <header class="modal-card-head">
+                        <p class="modal-card-title is-ctrl-color">Restaurer
+                            projet</p>
+                        <button class="delete" aria-label="close"></button>
+                    </header>
+                    <section class="modal-card-body">
+                        <!-- Content ... -->
+                        <div class="field">
+                            <label class="label">Choisissez parmi les versions disponibles</label>
+                            <div class="control">
+                                <div class="control has-icons-left  is-ctrl-input">
+                                    <div class="select is-medium">
+                                      <select>
+                                        <option selected>Regina-20-06-2022-14-53</option>
+                                        <option>Regina-20-06-2022-15-20</option>
+                                        <option>Regina-20-06-2022-16-45</option>
+                                      </select>
+                                    </div>
+                                    <span class="icon is-medium is-left">
+                                        <i class="fa-regular fa-file-zipper"></i>
+                                    </span>
+                                  </div>
+                            </div>
+                        </div>
+
+                         
+                        
+
+                        <div class="field">
+                            <div class="control">
+                                <label class="checkbox"> 
+                                    * En cliquant sur restaurer le projet en cours sera <strong>remplacé</strong> par la version que vous avez sélectionnée.
+                                </label>
+                            </div>
+                        </div>
+
+                     
+                    </section>
+                    <footer class="modal-card-foot field is-grouped is-grouped-right">
+                        <button class="button is-ctrl-btn-cancel">Cancel</button>
+                        <button class="button is-ctrl-btn">Exécuter</button>
+                    </footer>
+                </div>
+            </div>
+            <div id="ctrl-modal-audit" class="modal">
+                <div class="modal-background"></div>
+                <div class="modal-card">
+                    <header class="modal-card-head">
+                        <p class="modal-card-title is-ctrl-color">Auditer un
+                            projet</p>
+                        <button class="delete" aria-label="close"></button>
+                    </header>
+                    <section class="modal-card-body">
+                        <!-- Content ... -->
+                        <div class="field">
+                            <label class="label">Nom du projet</label>
+                            <div class="control">
+                                <input class="input is-ctrl-input" type="text"
+                                    placeholder="Text input" disabled>
+                            </div>
+                        </div>
+                        <div class="field">
+                            <label class="label">Nombre d'apps</label>
+                            <div class="control">
+                                <input class="input is-ctrl-input" type="text"
+                                    placeholder="Text input" disabled>
+                            </div>
+                        </div>
+                        <div class="field">
+                            <label class="label">Nombre de piplines</label>
+                            <div class="control">
+                                <input class="input is-ctrl-input" type="text"
+                                    placeholder="Text input" disabled>
+                            </div>
+                        </div>
+                        <div class="field">
+                            <label class="label">Nombre de Jobs</label>
+                            <div class="control">
+                                <input class="input is-ctrl-input" type="text"
+                                    placeholder="Text input" disabled>
+                            </div>
+                        </div>
+                        <div class="field">
+                            <label class="label">Nombre de variables d'environnement</label>
+                            <div class="control">
+                                <input class="input is-ctrl-input" type="text"
+                                    placeholder="Text input" disabled>
+                            </div>
+                        </div>
+
+                        
+
+                        
+
+                       
+                     
+                    </section>
+                    <footer class="modal-card-foot field is-grouped is-grouped-right">
+                        <button class="button is-ctrl-btn-cancel">Quitter</button> 
+                    </footer>
+                </div>
+            </div>
+        </body>
+    </html>

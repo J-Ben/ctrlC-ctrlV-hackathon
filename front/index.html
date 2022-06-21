@@ -12,6 +12,22 @@
             referrerpolicy="no-referrer" />
         <link rel="stylesheet" href="./assets/css/style.css">
         <script defer src="./assets/js/helper.js"></script>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+<script>
+$(document).ready(function(){
+  /* $("#test").click(function(){
+    $.get("http://127.0.0.1:5000/test", function(data, status){
+      alert("Data: " + data + "\nStatus: " + status);
+    });
+  }); */
+
+  fetch('http://127.0.0.1:5000/test')
+    .then(response => {
+        
+        console.log(response.json())
+    } );
+});
+</script>
     </head>
     <body>
         <section class="hero is-success is-ctrl-hero">
@@ -71,7 +87,7 @@
                                             fa-arrows-rotate"></i> </span>
                                 </button>
 
-                                <button class="button is-ctrl-no-border
+                                <button id="test" class="button is-ctrl-no-border
                                 js-modal-trigger"
                                 data-target="ctrl-modal-audit">
                                     <span class="icon is-small

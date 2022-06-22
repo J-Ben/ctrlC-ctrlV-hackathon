@@ -1,0 +1,38 @@
+*{
+    font-size: x-large;
+}
+.is-ctrl-logo{
+    font-size: xx-large;
+}
+.is-ctrl-table{ 
+    width: -webkit-fill-available !important;  
+}
+
+.is-ctrl-btn{ 
+    background-color: #AD00FF !important;  
+    color: #fff !important; 
+    border-radius:12px
+}
+
+
+.is-ctrl-btn-cancel{ 
+    background-color: #929292 !important;  
+    color: #000 !important; 
+    border-radius:12px
+}
+
+.is-ctrl-input{  
+    border-radius:12px
+}
+
+.is-ctrl-hero{ 
+    background-color: #AD00FF !important;  
+}
+
+.is-ctrl-color{ 
+    color: #AD00FF !important;  
+}
+
+.is-ctrl-no-border{
+    border: unset !important;  
+}

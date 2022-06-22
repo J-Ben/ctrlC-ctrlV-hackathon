@@ -1,0 +1,18 @@
+[
+    {
+        "creator": "benoit.franck",
+        "description": "",
+        "id": "db844ca5-4041-4661-917d-0ba8ea6dd086",
+        "jobsCount": 4,
+        "name": "[ESTIAM] G14 Hackathon",
+        "status": "READY"
+    },
+    {
+        "creator": "estiam_g14_elie-denis.dechasse",
+        "description": "Test",
+        "id": "f0cb7d1a-94c8-4152-808a-015ff5061a3b",
+        "jobsCount": 0,
+        "name": "[ESTIAM] G14 Hackathon Test",
+        "status": "READY"
+    }
+]

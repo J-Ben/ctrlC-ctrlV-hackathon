@@ -1,10 +1,13 @@
+from pydoc import resolve
 from flask import Flask
 import os
 import flask
 from flask import request, jsonify, make_response
 import variables.saagie as saagie
+from flask_cors import CORS
 
 app = Flask(__name__)
+CORS(app)
 
 @app.route('/')
 def index():

@@ -94,14 +94,14 @@
                 <div class="field">
                     <label class="label">Ancien nom</label>
                     <div class="control">
-                        <input class="input is-ctrl-input" type="text" placeholder="Text input" disabled>
+                        <input class="projectNameOld input is-ctrl-input" type="text" placeholder="Text input" disabled>
                     </div>
                 </div>
 
                 <div class="field">
                     <label class="label">Nouveau nom</label>
                     <div class="control">
-                        <input class="input is-ctrl-input" type="text" placeholder="Text input">
+                        <input class="projectNameNew input is-ctrl-input" type="text" placeholder="Text input">
                     </div>
 
                 </div>
@@ -190,13 +190,13 @@
                 <div class="field">
                     <label class="label">Nombre d'apps</label>
                     <div class="control">
-                        <input class="input is-ctrl-input" type="text" placeholder="Text input" disabled>
+                        <input class="projectNombreApp input is-ctrl-input" type="text" placeholder="Text input" disabled>
                     </div>
                 </div>
                 <div class="field">
                     <label class="label">Nombre de piplines</label>
                     <div class="control">
-                        <input class="input is-ctrl-input" type="text" placeholder="Text input" disabled>
+                        <input class="projectNamePipeline input is-ctrl-input" type="text" placeholder="Text input" disabled>
                     </div>
                 </div>
                 <div class="field">
@@ -205,12 +205,12 @@
                         <input class="projectNombreJobs input is-ctrl-input" type="text" placeholder="Text input" disabled>
                     </div>
                 </div>
-                <div class="field">
+                <!-- <div class="field">
                     <label class="label">Nombre de variables d'environnement</label>
                     <div class="control">
                         <input class="input is-ctrl-input" type="text" placeholder="Text input" disabled>
                     </div>
-                </div>
+                </div> -->
             </section>
             <footer class="modal-card-foot field is-grouped is-grouped-right">
                 <button class="button is-ctrl-btn-cancel">Quitter</button>
@@ -256,7 +256,7 @@
                             + '<button onclick="render()" class="copyx button is-ctrl-no-border js-modal-trigger" data-id="' + id + '" data-target="ctrl-modal-copy"><span class="icon is-small is-ctrl-color toto"><i class="fa-regular fa-copy"></i> </span> </button>'
                             + '<button onclick="render()" class="button"> <span class="icon is-small is-ctrl-color"> <i class="fa-solid fa-download"></i> </span></button>'
                             + '<button onclick="render()" class="restaurex button is-ctrl-no-border js-modal-trigger"  data-id="' + id + '" data-target="ctrl-modal-restore"><span class="icon is-small is-ctrl-color"> <i class="fa-solid fa-arrows-rotate"></i> </span>  </button>'
-                            + '<button onclick="render()" class="auditx button is-ctrl-no-border js-modal-trigger" data-target="ctrl-modal-audit" data-id="' + id + '"><span class="icon is-small is-ctrl-color"><i class="fa-solid fa-circle-info"></i> </button>'
+                            + '<button onclick="render()" class="auditx button is-ctrl-no-border js-modal-trigger" data-target="ctrl-modal-audit" data-id="' + id + '" data-name="'+ this.name +'"><span class="icon is-small is-ctrl-color"><i class="fa-solid fa-circle-info"></i> </button>'
                             + '</td>'
                             + '</tr>')
                     });

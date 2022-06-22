@@ -1,5 +1,5 @@
 
-function getList() {
+const getList = () => {
 
     var myHeaders = new Headers();
 
@@ -24,7 +24,7 @@ function getList() {
           .then(data =>{
               console.log(data);
           }) 
-          .catch(function(error) {
+          .catch(const(error) {
               console.log(error);
           })
           
@@ -34,24 +34,24 @@ function getList() {
       } */
 }
 
-function render() {
+const render = () => {
 
     let projects = getList();
     console.log(projects);
 }
 
 
-function archiver() {
+const archiver = () => {
 
 
 }
 
-function restaure() {
+const restaure = () => {
 
 
 }
 
-function audit() {
+const audit = () => {
 
 
 }

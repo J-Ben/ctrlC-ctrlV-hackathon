@@ -41,7 +41,32 @@ def count_all(proj_id):
     dic_lispp = pipelineinfo
     return {'countjob': list_dict(dic_lisjb),'countpipeline': list_dict(dic_lispp), 'countapp': list_dict(dic_lisap)} 
 
+@app.route('/appinfo/<string:proj_id>',  methods=['GET'])   
+def get_info_app(proj_id):
+    appsinfo = saagie.API.apps.list_for_project(proj_id)
+    return appsinfo
 
+
+@app.route('/jobinfo/<string:proj_id>',  methods=['GET'])   
+def get_info_job(proj_id):
+    jobsinfo = saagie.API.jobs.list_for_project(proj_id)
+    return jobsinfo
+
+@app.route('/pipeinfo/<string:proj_id>',  methods=['GET'])   
+def get_info_pipe(proj_id):
+    pipesinfo = saagie.API.pipelines.list_for_project(proj_id)
+    return pipesinfo
+    
+
+@app.route('/projinfo/<string:proj_id>',  methods=['GET'])   
+def get_info_proj(proj_id):
+    projtsinfo = saagie.API.projects.get_info(proj_id)
+    return projtsinfo
+
+@app.route('/vareninfo/<string:proj_id>',  methods=['GET'])   
+def get_info_varenv(proj_id):
+    envvarinfo = saagie.API.env_vars.list_for_project(proj_id)
+    return envvarinfo
 
 
 if __name__ == "__main__":

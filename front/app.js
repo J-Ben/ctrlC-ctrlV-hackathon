@@ -1,8 +1,9 @@
 
+
+
 const getList = () => {
 
     var myHeaders = new Headers();
-
     var myInit = {
         method: 'GET',
         headers: myHeaders,
@@ -11,33 +12,29 @@ const getList = () => {
     };
 
     fetch('http://127.0.0.1:5000/test', myInit)
-        .then(response => {
-
+        .then(response => { 
             console.log(response)
         });
 
 
-    /*   try {
-          var myHeaders = new Headers();
-          let res = fetch('http://127.0.0.1:5000/test')
-          .then((res)  => res.json())
-          .then(data =>{
-              console.log(data);
-          }) 
-          .catch(const(error) {
-              console.log(error);
-          })
-          
-      } catch (error) {
-          console.log(error);
-  
-      } */
 }
 
-const render = () => {
 
-    let projects = getList();
-    console.log(projects);
+
+const render = () => {
+    console.log('click')
+    $(".test").on("click", function (event) {
+        var id = $(this).data('id');
+        var dataId = $(this).attr("data-id");
+        console.log("The data-id of clicked item is: " + dataId + " " + id);
+    });
+
+    $(".copyx").on("click", function (event) {
+        var id = $(this).data('id');
+        var dataId = $(this).attr("data-id");
+        console.log("The data-id of clicked item is: " + dataId + " " + id);
+    });
+
 }
 
 

@@ -1,4 +1,6 @@
 
+
+
 function getList() {
 
     var myHeaders = new Headers();
@@ -15,27 +17,24 @@ var myInit = { method: 'GET',
     } );
    
 
-  /*   try {
-        var myHeaders = new Headers();
-        let res = fetch('http://127.0.0.1:5000/test')
-        .then((res)  => res.json())
-        .then(data =>{
-            console.log(data);
-        }) 
-        .catch(function(error) {
-            console.log(error);
-        })
-        
-    } catch (error) {
-        console.log(error);
-
-    } */
 }
 
- function render() {
 
-    let projects =  getList();
-    console.log(projects); 
+
+function render() {
+    console.log('click')
+    $(".test").on("click",function(event){
+     var id = $(this).data('id'); 
+    var dataId = $(this).attr("data-id");
+    console.log("The data-id of clicked item is: " + dataId + " "+ id);
+  });
+    
+  $(".copyx").on("click",function(event){
+    var id = $(this).data('id'); 
+   var dataId = $(this).attr("data-id");
+   console.log("The data-id of clicked item is: " + dataId + " "+ id);
+ });
+    
 }
 
 

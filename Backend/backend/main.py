@@ -1,10 +1,15 @@
 from pydoc import resolve
 from flask import Flask
 import os
-import flask
 from flask import request, jsonify, make_response
 import variables.saagie as saagie
 from flask_cors import CORS
+import json
+import variables.saagie as saagie
+from flask import request
+import controllers.clone as cloneHandler
+import variables.request as configAPI
+
 
 app = Flask(__name__)
 CORS(app)
@@ -27,6 +32,13 @@ def length_list(list):
     else :
         count = len(list)
     return count
+@app.route('/clone', methods = ['POST'])
+def clone():
+    
+    name = request.form['name']
+    projectId = request.form['id']
+    respo = cloneHandler.handler(name, projectId)
+    return respo
     
 def list_dict(dict_list):
     k = 0

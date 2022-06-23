@@ -20,12 +20,17 @@ def a():
 
 
 #fonction permett
-def length_list(list):
+def length_list(liste):
     count = 0
-    if len(list) == 0:
-        
-        for item in list:
-            count += 1
+    if isinstance(liste, list):
+        if len(liste) == 0:
+           count = 0
+        else:
+           for item in liste:
+              count += 1
+    else:
+        count = 0
+    
     return count
     
 def list_dict(dict_list):

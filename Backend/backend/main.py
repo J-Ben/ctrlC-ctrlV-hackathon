@@ -20,7 +20,7 @@ def a():
 
 
 #fonction permettant de recuperer la taille d'une liste
-def length_list(liste):
+def length_liste(liste):
     count = 0
     if isinstance(liste, list):
         if len(liste) == 0:

@@ -1,16 +1,18 @@
 <!DOCTYPE html>
 <html>
 
-<head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>CtrlC+CtrlV</title>
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css"
-        integrity="sha512-KfkfwYDsLkIlwQp6LFnl8zNdLGxu9YAA1QvwINks4PhcElQSvqcyVLLD9aMhXd13uQjoXtEKNosOWaZqXgel0g=="
-        crossorigin="anonymous" referrerpolicy="no-referrer" />
-    <link rel="stylesheet" href="./assets/css/style.css">
-<style>
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>CtrlC+CtrlV</title>
+        <link rel="stylesheet"
+            href="https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css">
+        <link rel="stylesheet"
+            href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css"
+            integrity="sha512-KfkfwYDsLkIlwQp6LFnl8zNdLGxu9YAA1QvwINks4PhcElQSvqcyVLLD9aMhXd13uQjoXtEKNosOWaZqXgel0g=="crossorigin="anonymous"
+            referrerpolicy="no-referrer" />
+        <link rel="stylesheet" href="./assets/css/style.css">
+        <style>
 
 .loader-wrapper {
   position: absolute;
@@ -39,42 +41,42 @@
   z-index: 1;
 }
 </style>
-</head>
+    </head>
 
-<body>
-    <section class="hero is-success is-ctrl-hero">
-        <div class="hero-body">
-            <p class="title">
-                <span class="icon">
-                    <i class="fa-regular fa-copy is-ctrl-logo"></i>
-                </span>
-                CtrlC-CtrlV
-            </p>
-            <p class="subtitle">
-                Votre gestionnaire de projet Saagie tout en 1.
-            </p>
-        </div>
-    </section>
+    <body>
+        <section class="hero is-success is-ctrl-hero">
+            <div class="hero-body">
+                <p class="title">
+                    <span class="icon">
+                        <i class="fa-regular fa-copy is-ctrl-logo"></i>
+                    </span>
+                    CtrlC-CtrlV
+                </p>
+                <p class="subtitle">
+                    Votre gestionnaire de projet Saagie tout en 1.
+                </p>
+            </div>
+        </section>
 
     <section class="section">
         <div class="container">
          
 
-            <p class="subtitle is-ctrl-color">
-                Tous vos projets <strong>Saagie</strong>!
-            </p>
-            <table class="table is-ctrl-table">
-                <thead>
-                    <tr>
-                        <th><abbr title="Position">#</abbr></th>
-                        <th><abbr title="Identifiant">ID</abbr></th>
-                        <th><abbr title="Nom du projet">Nom</abbr></th>
-                        <th>Options</th>
-                    </tr>
-                </thead>
+                <p class="subtitle is-ctrl-color">
+                    Tous vos projets <strong>Saagie</strong>!
+                </p>
+                <table class="table is-ctrl-table">
+                    <thead>
+                        <tr>
+                            <th><abbr title="Position">#</abbr></th>
+                            <th><abbr title="Identifiant">ID</abbr></th>
+                            <th><abbr title="Nom du projet">Nom</abbr></th>
+                            <th>Options</th>
+                        </tr>
+                    </thead>
 
-                <tbody>
-                    <!-- <tr>
+                    <tbody>
+                        <!-- <tr>
                         <th>1</th>
                         <td>8321e13c-892a-4481-8552-5be4b6cc5df4</td>
                         <td>Regina</td>
@@ -106,96 +108,104 @@
                             </button>
                         </td>
                     </tr> -->
-                </tbody>
-            </table>
-        </div>
-    </section>
-    <div id="ctrl-modal-copy" class="modal">
-        <div class="modal-background"></div>
-        <div class="modal-card">
-            <header class="modal-card-head">
-                <p class="modal-card-title is-ctrl-color">Copier un
-                    projet</p>
-                <button class="delete" aria-label="close"></button>
-            </header>
-            <section class="modal-card-body">
-                <!-- Content ... -->
-                <div class="field">
-                    <label class="label">Ancien nom</label>
-                    <div class="control">
-                        <input class="projectNameOld input is-ctrl-input" type="text" placeholder="Text input" disabled>
-                    </div>
-                </div>
-
-                <div class="field">
-                    <label class="label">Nouveau nom</label>
-                    <div class="control">
-                        <input class="projectNameNew input is-ctrl-input" type="text" placeholder="Text input">
-                    </div>
-
-                </div>
-
-
-
-                <div class="field">
-                    <div class="control">
-                        <label class="checkbox">
-                            <input type="checkbox" checked>
-                            <strong>Remplacer</strong> si un projet de même nom existe.
-                        </label>
-                    </div>
-                </div>
-
-
-            </section>
-            <footer class="modal-card-foot field is-grouped is-grouped-right">
-                <button class="button is-ctrl-btn-cancel">Cancel</button>
-                <button  onclick="copyProject()" class="button is-ctrl-btn">Exécuter</button>
-            </footer>
-        </div>
-    </div>
-    <div id="ctrl-modal-restore" class="modal">
-        <div class="modal-background"></div>
-        <div class="modal-card">
-            <header class="modal-card-head">
-                <p class="modal-card-title is-ctrl-color">Restaurer
-                    projet</p>
-                <button class="delete" aria-label="close"></button>
-            </header>
-            <section class="modal-card-body">
-                <!-- Content ... -->
-                <div class="field">
-                    <label class="label">Choisissez parmi les versions disponibles</label>
-                    <div class="control">
-                        <div class="control has-icons-left  is-ctrl-input">
-                            <div class="select is-medium">
-                                <select>
-                                    <option selected>Regina-20-06-2022-14-53</option>
-                                    <option>Regina-20-06-2022-15-20</option>
-                                    <option>Regina-20-06-2022-16-45</option>
-                                </select>
-                            </div>
-                            <span class="icon is-medium is-left">
-                                <i class="fa-regular fa-file-zipper"></i>
-                            </span>
+                    </tbody>
+                </table>
+            </div>
+        </section>
+        <div id="ctrl-modal-copy" class="modal">
+            <div class="modal-background"></div>
+            <div class="modal-card">
+                <header class="modal-card-head">
+                    <p class="modal-card-title is-ctrl-color">Copier un
+                        projet</p>
+                    <button class="delete" aria-label="close"></button>
+                </header>
+                <section class="modal-card-body">
+                    <!-- Content ... -->
+                    <div class="field">
+                        <label class="label">Ancien nom</label>
+                        <div class="control">
+                            <input class="projectNameOld input is-ctrl-input"
+                                type="text" placeholder="Text input" disabled>
                         </div>
                     </div>
-                </div>
-                <div class="field">
-                    <div class="control">
-                        <label class="checkbox">
-                            * En cliquant sur restaurer le projet en cours sera <strong>remplacé</strong> par la version
-                            que vous avez sélectionnée.
-                        </label>
+
+                    <div class="field">
+                        <label class="label">Nouveau nom</label>
+                        <div class="control">
+                            <input class="projectNameNew input is-ctrl-input"
+                                type="text" placeholder="Text input">
+                        </div>
+
                     </div>
-                </div>
 
 
-            </section>
-            <footer class="modal-card-foot field is-grouped is-grouped-right">
-                <button class="button is-ctrl-btn-cancel">Cancel</button>
-                <button class="button is-ctrl-btn">Exécuter</button>
-            </footer>
+
+                    <div class="field">
+                        <div class="control">
+                            <label class="checkbox">
+                                <input type="checkbox" checked>
+                                <strong>Remplacer</strong> si un projet de même
+                                nom existe.
+                            </label>
+                        </div>
+                    </div>
+
+
+                </section>
+                <footer class="modal-card-foot field is-grouped
+                    is-grouped-right">
+                    <button class="button is-ctrl-btn-cancel">Cancel</button>
+                    <button onclick="copyProject()" class="button is-ctrl-btn">Exécuter</button>
+                </footer>
+            </div>
+        </div>
+        <div id="ctrl-modal-restore" class="modal">
+            <div class="modal-background"></div>
+            <div class="modal-card">
+                <header class="modal-card-head">
+                    <p class="modal-card-title is-ctrl-color">Restaurer
+                        projet</p>
+                    <button class="delete" aria-label="close"></button>
+                </header>
+                <section class="modal-card-body">
+                    <!-- Content ... -->
+                    <div class="field">
+                        <label class="label">Choisissez parmi les versions
+                            disponibles</label>
+                        <div class="control">
+                            <div class="control has-icons-left is-ctrl-input">
+                                <div class="select is-medium">
+                                    <select>
+                                        <option selected>Regina-20-06-2022-14-53</option>
+                                        <option>Regina-20-06-2022-15-20</option>
+                                        <option>Regina-20-06-2022-16-45</option>
+                                    </select>
+                                </div>
+                                <span class="icon is-medium is-left">
+                                    <i class="fa-regular fa-file-zipper"></i>
+                                </span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="field">
+                        <div class="control">
+                            <label class="checkbox">
+                                * En cliquant sur restaurer le projet en cours
+                                sera <strong>remplacé</strong> par la version
+                                que vous avez sélectionnée.
+                            </label>
+                        </div>
+                    </div>
+
+
+                </section>
+                <footer class="modal-card-foot field is-grouped
+                    is-grouped-right">
+                    <button class="button is-ctrl-btn-cancel">Cancel</button>
+                    <button class="button is-ctrl-btn">Exécuter</button>
+                </footer>
+            </div>
         </div>
     </div>
 
@@ -242,44 +252,49 @@
                                 type="text" placeholder="Text input"
                                 disabled>
                     </div>
-                </div>
-                <div class="field">
-                    <label class="label">Nombre d'apps</label>
-                    <div class="control">
-                        <input class="projectNombreApp input is-ctrl-input" type="text" placeholder="Text input" disabled>
+                    <div class="field">
+                        <label class="label">
+                            Apps : (<b class="projectNombreApp"></b>)
+                        </label>
+                        <div class="control">
+                            <div class="projectListApp"> 
+                            </div>
+                        </div>
                     </div>
-                </div>
-                <div class="field">
-                    <label class="label">Nombre de piplines</label>
-                    <div class="control">
-                        <input class="projectNamePipeline input is-ctrl-input" type="text" placeholder="Text input" disabled>
+                    <div class="field">
+                        <label class="label">Piplines : (<b
+                                class="projectNamePipeline"></b>)</label>
+                        <div class="control">
+                            
+                        </div>
                     </div>
-                </div>
-                <div class="field">
-                    <label class="label">Nombre de Jobs</label>
-                    <div class="control">
-                        <input class="projectNombreJobs input is-ctrl-input" type="text" placeholder="Text input" disabled>
+                    <div class="field">
+                        <label class="label">Jobs (<b class="projectNombreJobs"></b>)</label>
+                        <div class="control">
+                             
+                        </div>
                     </div>
-                </div>
-                <!-- <div class="field">
+                    <!-- <div class="field">
                     <label class="label">Nombre de variables d'environnement</label>
                     <div class="control">
                         <input class="input is-ctrl-input" type="text" placeholder="Text input" disabled>
                     </div>
                 </div> -->
-            </section>
-            <footer class="modal-card-foot field is-grouped is-grouped-right">
-                <button class="button is-ctrl-btn-cancel">Quitter</button>
-            </footer>
+                </section>
+                <footer class="modal-card-foot field is-grouped
+                    is-grouped-right">
+                    <button class="button is-ctrl-btn-cancel">Quitter</button>
+                </footer>
+            </div>
         </div>
-    </div>
-    <div class="loader-wrapper">
-        <div class="loader is-loading"></div>
-    </div>
-    <script defer src="./assets/js/helper.js"></script>
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
-    <script defer src="./app.js"></script>
-    <script>
+        <div class="loader-wrapper">
+            <div class="loader is-loading"></div>
+        </div>
+        <script defer src="./assets/js/helper.js"></script>
+        <script
+            src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+        <script defer src="./app.js"></script>
+        <script>
         const init = () => {
             $(".test").on("click", function (event) {
                 var id = $(this).data('id');
@@ -323,8 +338,6 @@
                 }).finally(() => $('.loader-wrapper').removeClass('is-active'))
         });
     </script>
-
-
-</body>
+    </body>
 
 </html>

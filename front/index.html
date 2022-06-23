@@ -14,7 +14,7 @@
 </head>
 
 <body>
-    <<section class="hero is-success is-ctrl-hero">
+    <section class="hero is-success is-ctrl-hero">
         <div class="hero-body">
             <p class="title">
                 <span class="icon">
@@ -256,7 +256,7 @@
                             + '<button onclick="render()" class="copyx button is-ctrl-no-border js-modal-trigger" data-id="' + id + '" data-target="ctrl-modal-copy"><span class="icon is-small is-ctrl-color toto"><i class="fa-regular fa-copy"></i> </span> </button>'
                             + '<button onclick="render()" class="button"> <span class="icon is-small is-ctrl-color"> <i class="fa-solid fa-download"></i> </span></button>'
                             + '<button onclick="render()" class="restaurex button is-ctrl-no-border js-modal-trigger"  data-id="' + id + '" data-target="ctrl-modal-restore"><span class="icon is-small is-ctrl-color"> <i class="fa-solid fa-arrows-rotate"></i> </span>  </button>'
-                            + '<button onclick="render()" class="auditx button is-ctrl-no-border js-modal-trigger" data-target="ctrl-modal-audit" data-id="' + id + '" data-name="'+ this.name +'"><span class="icon is-small is-ctrl-color"><i class="fa-solid fa-circle-info"></i> </button>'
+                            + '<button onclick="do_audit(' + id + ')" class="auditx button is-ctrl-no-border js-modal-trigger" data-target="ctrl-modal-audit" data-id="' + id + '" data-name="'+ this.name +'"><span class="icon is-small is-ctrl-color"><i class="fa-solid fa-circle-info"></i> </button>'
                             + '</td>'
                             + '</tr>')
                     });

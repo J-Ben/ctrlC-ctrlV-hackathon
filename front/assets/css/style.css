@@ -1,38 +1,67 @@
-*{
-    font-size: x-large;
+* {
+  font-size: x-large;
 }
-.is-ctrl-logo{
-    font-size: xx-large;
+.is-ctrl-logo {
+  font-size: xx-large;
 }
-.is-ctrl-table{ 
-    width: -webkit-fill-available !important;  
-}
-
-.is-ctrl-btn{ 
-    background-color: #AD00FF !important;  
-    color: #fff !important; 
-    border-radius:12px
+.is-ctrl-table {
+  width: -webkit-fill-available !important;
 }
 
-
-.is-ctrl-btn-cancel{ 
-    background-color: #929292 !important;  
-    color: #000 !important; 
-    border-radius:12px
+.is-ctrl-btn {
+  background-color: #ad00ff !important;
+  color: #fff !important;
+  border-radius: 12px;
 }
 
-.is-ctrl-input{  
-    border-radius:12px
+.is-ctrl-btn-cancel {
+  background-color: #929292 !important;
+  color: #000 !important;
+  border-radius: 12px;
 }
 
-.is-ctrl-hero{ 
-    background-color: #AD00FF !important;  
+.is-ctrl-input {
+  border-radius: 12px;
 }
 
-.is-ctrl-color{ 
-    color: #AD00FF !important;  
+.is-ctrl-hero {
+  background-color: #ad00ff !important;
 }
 
-.is-ctrl-no-border{
-    border: unset !important;  
+.is-ctrl-color {
+  color: #ad00ff !important;
+}
+
+.is-ctrl-no-border {
+  border: unset !important;
+}
+
+.loader-wrapper {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  background: #fff;
+  opacity: 0;
+  z-index: -1;
+  transition: opacity 0.3s;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 6px;
+}
+.loader {
+  height: 80px;
+  width: 80px;
+}
+
+.is-active {
+  opacity: 1;
+  z-index: 1;
+}
+
+.label b {
+  font-size: inherit;
+  color: #ad00ff !important;
 }

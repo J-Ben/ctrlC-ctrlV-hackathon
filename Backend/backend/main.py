@@ -22,13 +22,18 @@ def a():
     return projects
 
 
-
-def length_list(list):
+#fonction permett
+def length_list(liste):
     count = 0
-    if len(list) == 0:
+    if isinstance(liste, list):
+        if len(liste) == 0:
+           count = 0
+        else:
+           for item in liste:
+              count += 1
+    else:
         count = 0
-    else :
-        count = len(list)
+    
     return count
     
 def list_dict(dict_list):

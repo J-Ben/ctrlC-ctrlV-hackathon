@@ -22,8 +22,10 @@ def a():
 
 def length_list(list):
     count = 0
-    for item in list:
-        count += 1
+    if len(list) == 0:
+        
+        for item in list:
+            count += 1
     return count
     
 def list_dict(dict_list):
@@ -32,7 +34,11 @@ def list_dict(dict_list):
         length_list(v)
         k = length_list(v)
     return k
- 
+@app.route('/countpipe/<string:proj_id>',  methods=['GET'])   
+def get_lis_pipe(proj_id):
+    appsinfo = saagie.API.pipelines.list_for_project(proj_id)
+    return appsinfo
+
 
 @app.route('/audit_count/<string:proj_id>')
 def count_all(proj_id):

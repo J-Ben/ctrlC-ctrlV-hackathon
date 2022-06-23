@@ -15,7 +15,7 @@ def index():
 
 @app.route('/test')
 def a():
-    projects = saagie.API.projects.list()
+    projects = saagie.API.projects.list(id)
     return projects
 
 

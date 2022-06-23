@@ -16,7 +16,7 @@ const getList = () => {
                     + '</td>'
                     + '<td>'
                     +'<button onclick="copyRender()" class="copyx button is-ctrl-no-border js-modal-trigger" data-id="' + id + '" data-target="ctrl-modal-copy"><span class="icon is-small is-ctrl-color toto"><i class="fa-regular fa-copy"></i> </span> </button>'
-                            + '<button onclick="render()" class="button"> <span class="icon is-small is-ctrl-color"> <i class="fa-solid fa-download"></i> </span></button>'
+                    + '<button onclick="downloadRender()" class="downloadx button" data-id="' + id + '"> <span class="icon is-small is-ctrl-color"> <i class="fa-solid fa-download"></i> </span></button>'
                             + '<button onclick="restaureRender()" class="restaurex button is-ctrl-no-border js-modal-trigger"  data-id="' + id + '" data-target="ctrl-modal-restore"><span class="icon is-small is-ctrl-color"> <i class="fa-solid fa-arrows-rotate"></i> </span>  </button>'
                             + '<button onclick="auditRender()" class="auditx button is-ctrl-no-border js-modal-trigger" data-target="ctrl-modal-audit" data-id="' + id + '" data-name="'+ this.name +'"><span class="icon is-small is-ctrl-color"><i class="fa-solid fa-circle-info"></i> </button>'
                             + '</td>'
@@ -118,3 +118,25 @@ const audit = (id, nameProject) => {
         $("#ctrl-modal-audit").addClass("is-active")
         
 }
+
+const downloadRender = () => {
+console.log("download render")
+    $(".downloadx").on("click", function (event) {
+        var id = $(this).data('id');
+       
+        fetch(`http://127.0.0.1:5000/jobinfo/${id}`)
+        .then(response => response.json())
+        .then(data => {
+            console.log(data);
+
+            $('resultDownload').append(
+                "<tr><td> <a href='https://demo-workspace.a4.saagie.io/projects/api/platform/2/project/"+ id +"/job/"+ data.id+"/version/2/artifact/test.py'></a>"
+                + '</td><td>'
+                + this.id
+                + '</td>'
+                + '</tr>')
+        });
+        })
+        $("#ctrl-modal-download").addClass("is-active");
+    }
+

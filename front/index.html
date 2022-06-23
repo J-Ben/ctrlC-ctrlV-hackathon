@@ -58,6 +58,7 @@
 
     <section class="section">
         <div class="container">
+         
 
             <p class="subtitle is-ctrl-color">
                 Tous vos projets <strong>Saagie</strong>!
@@ -197,6 +198,33 @@
             </footer>
         </div>
     </div>
+
+    <div id="ctrl-modal-download" class="modal">
+        <div class="modal-background"></div>
+        <div class="modal-card">
+            <header class="modal-card-head">
+                <p class="modal-card-title is-ctrl-color">Downlaod
+                    projet</p>
+                <button class="delete" aria-label="close"></button>
+            </header>
+            <section class="modal-card-body">
+                <!-- Content ... -->
+                <div class="field">
+                    <label class="label">Liste des projets</label>
+                    <div class="control">
+                        <ul id="resultDownload"></ul>
+                    </div>
+                </div>
+
+
+            </section>
+            <footer class="modal-card-foot field is-grouped is-grouped-right">
+                <button class="button is-ctrl-btn-cancel">Cancel</button>
+                <button class="button is-ctrl-btn">Exécuter</button>
+            </footer>
+        </div>
+    </div>
+
     <div id="ctrl-modal-audit" class="modal">
         <div class="modal-background"></div>
         <div class="modal-card">
@@ -267,14 +295,16 @@
               });
             }); */
             $('.loader-wrapper').addClass('is-active');
+            let url = "https://demo-workspace.a4.saagie.io/projects/api/platform/2/project/";
             fetch('http://127.0.0.1:5000/test')
             // fetch('./assets/data/projets.json')
                 .then(response => response.json())
                 .then(data => {
-                    console.log(data)
+                    
                     $(data.projects).each(function (index) {
                         var id = this.id;
                         console.log(id)
+                        
                         $('tbody').append(
                             '<tr><td>' + (index + 1)
                             + '</td><td>'
@@ -284,7 +314,7 @@
                             + '</td>'
                             + '<td>'
                             + '<button onclick="copyRender()" class="copyx button is-ctrl-no-border js-modal-trigger" data-id="' + id + '" data-target="ctrl-modal-copy"><span class="icon is-small is-ctrl-color toto"><i class="fa-regular fa-copy"></i> </span> </button>'
-                            + '<button onclick="render()" class="button"> <span class="icon is-small is-ctrl-color"> <i class="fa-solid fa-download"></i> </span></button>'
+                            + '<button onclick="downloadRender()" class="downloadx button" data-id="' + id + '"> <span class="icon is-small is-ctrl-color"> <i class="fa-solid fa-download"></i> </span></button>'
                             + '<button onclick="restaureRender()" class="restaurex button is-ctrl-no-border js-modal-trigger"  data-id="' + id + '" data-target="ctrl-modal-restore"><span class="icon is-small is-ctrl-color"> <i class="fa-solid fa-arrows-rotate"></i> </span>  </button>'
                             + '<button onclick="auditRender()" class="auditx button is-ctrl-no-border js-modal-trigger" data-target="ctrl-modal-audit" data-id="' + id + '" data-name="'+ this.name +'"><span class="icon is-small is-ctrl-color"><i class="fa-solid fa-circle-info"></i> </button>'
                             + '</td>'

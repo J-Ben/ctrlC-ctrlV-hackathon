@@ -10,11 +10,39 @@
         integrity="sha512-KfkfwYDsLkIlwQp6LFnl8zNdLGxu9YAA1QvwINks4PhcElQSvqcyVLLD9aMhXd13uQjoXtEKNosOWaZqXgel0g=="
         crossorigin="anonymous" referrerpolicy="no-referrer" />
     <link rel="stylesheet" href="./assets/css/style.css">
+<style>
 
+.loader-wrapper {
+  position: absolute;
+  top: 40%;
+  left: 40%;
+  height: 20%;
+  width: 20%;
+  /* background: #fff; */
+  opacity: 0;
+  z-index: -1;
+  transition: opacity .3s;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 6px;
+ 
+}
+
+.loader {
+    height: 80px;
+    width: 80px;
+}
+
+.is-active {
+  opacity: 1;
+  z-index: 1;
+}
+</style>
 </head>
 
 <body>
-    <<section class="hero is-success is-ctrl-hero">
+    <section class="hero is-success is-ctrl-hero">
         <div class="hero-body">
             <p class="title">
                 <span class="icon">
@@ -217,7 +245,9 @@
             </footer>
         </div>
     </div>
-
+    <div class="loader-wrapper">
+        <div class="loader is-loading"></div>
+    </div>
     <script defer src="./assets/js/helper.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
     <script defer src="./app.js"></script>
@@ -236,7 +266,7 @@
                 alert("Data: " + data + "\nStatus: " + status);
               });
             }); */
-          
+            $('.loader-wrapper').addClass('is-active');
             fetch('http://127.0.0.1:5000/test')
             // fetch('./assets/data/projets.json')
                 .then(response => response.json())
@@ -253,14 +283,14 @@
                             + this.name
                             + '</td>'
                             + '<td>'
-                            + '<button onclick="render()" class="copyx button is-ctrl-no-border js-modal-trigger" data-id="' + id + '" data-target="ctrl-modal-copy"><span class="icon is-small is-ctrl-color toto"><i class="fa-regular fa-copy"></i> </span> </button>'
+                            + '<button onclick="copyRender()" class="copyx button is-ctrl-no-border js-modal-trigger" data-id="' + id + '" data-target="ctrl-modal-copy"><span class="icon is-small is-ctrl-color toto"><i class="fa-regular fa-copy"></i> </span> </button>'
                             + '<button onclick="render()" class="button"> <span class="icon is-small is-ctrl-color"> <i class="fa-solid fa-download"></i> </span></button>'
-                            + '<button onclick="render()" class="restaurex button is-ctrl-no-border js-modal-trigger"  data-id="' + id + '" data-target="ctrl-modal-restore"><span class="icon is-small is-ctrl-color"> <i class="fa-solid fa-arrows-rotate"></i> </span>  </button>'
-                            + '<button onclick="render()" class="auditx button is-ctrl-no-border js-modal-trigger" data-target="ctrl-modal-audit" data-id="' + id + '" data-name="'+ this.name +'"><span class="icon is-small is-ctrl-color"><i class="fa-solid fa-circle-info"></i> </button>'
+                            + '<button onclick="restaureRender()" class="restaurex button is-ctrl-no-border js-modal-trigger"  data-id="' + id + '" data-target="ctrl-modal-restore"><span class="icon is-small is-ctrl-color"> <i class="fa-solid fa-arrows-rotate"></i> </span>  </button>'
+                            + '<button onclick="auditRender()" class="auditx button is-ctrl-no-border js-modal-trigger" data-target="ctrl-modal-audit" data-id="' + id + '" data-name="'+ this.name +'"><span class="icon is-small is-ctrl-color"><i class="fa-solid fa-circle-info"></i> </button>'
                             + '</td>'
                             + '</tr>')
                     });
-                })
+                }).finally(() => $('.loader-wrapper').removeClass('is-active'))
         });
     </script>
 

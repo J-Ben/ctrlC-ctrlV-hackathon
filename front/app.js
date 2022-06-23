@@ -15,11 +15,11 @@ const getList = () => {
                     + this.name
                     + '</td>'
                     + '<td>'
-                    + '<button onclick="render()" class="copyx button is-ctrl-no-border js-modal-trigger" data-id="' + id + '" data-target="ctrl-modal-copy"><span class="icon is-small is-ctrl-color toto"><i class="fa-regular fa-copy"></i> </span> </button>'
-                    + '<button onclick="render()" class="button"> <span class="icon is-small is-ctrl-color"> <i class="fa-solid fa-download"></i> </span></button>'
-                    + '<button onclick="render()" class="restaurex button is-ctrl-no-border js-modal-trigger"  data-id="' + id + '" data-target="ctrl-modal-restore"><span class="icon is-small is-ctrl-color"> <i class="fa-solid fa-arrows-rotate"></i> </span>  </button>'
-                    + '<button onclick="render()" class="auditx button is-ctrl-no-border js-modal-trigger" data-target="ctrl-modal-audit" data-id="' + id + '" data-name="'+ this.name +'"><span class="icon is-small is-ctrl-color"><i class="fa-solid fa-circle-info"></i> </button>'
-                    + '</td>'
+                    +'<button onclick="copyRender()" class="copyx button is-ctrl-no-border js-modal-trigger" data-id="' + id + '" data-target="ctrl-modal-copy"><span class="icon is-small is-ctrl-color toto"><i class="fa-regular fa-copy"></i> </span> </button>'
+                            + '<button onclick="render()" class="button"> <span class="icon is-small is-ctrl-color"> <i class="fa-solid fa-download"></i> </span></button>'
+                            + '<button onclick="restaureRender()" class="restaurex button is-ctrl-no-border js-modal-trigger"  data-id="' + id + '" data-target="ctrl-modal-restore"><span class="icon is-small is-ctrl-color"> <i class="fa-solid fa-arrows-rotate"></i> </span>  </button>'
+                            + '<button onclick="auditRender()" class="auditx button is-ctrl-no-border js-modal-trigger" data-target="ctrl-modal-audit" data-id="' + id + '" data-name="'+ this.name +'"><span class="icon is-small is-ctrl-color"><i class="fa-solid fa-circle-info"></i> </button>'
+                            + '</td>'
                     + '</tr>')
             });
         })
@@ -46,7 +46,7 @@ const copyProject = () => {
 }
 
 
-const render = () => {
+const auditRender = () => {
 
     $(".auditx").on("click", function (event) {
         var id = $(this).data('id');
@@ -56,7 +56,9 @@ const render = () => {
         
         audit(dataId, dataName);
     });
+}
 
+const copyRender = () => {
     $(".copyx").on("click", function (event) {
         var id = $(this).data('id');
        
@@ -68,7 +70,9 @@ const render = () => {
         })
         $("#ctrl-modal-copy").addClass("is-active");
     });
+}
 
+const restaureRender = () => {
     $(".restaurex").on("click", function (event) {
         var id = $(this).data('id');
         var dataId = $(this).attr("data-id");
@@ -91,19 +95,26 @@ const restaure = () => {
 }
 
 const audit = (id, nameProject) => {
-
-    console.log("name : ");
+    // clear field
+    $(".projectNameA").val("");
+    $(".projectNombreJobs").val("");
+    $(".projectNombreApp").val("");
+    $(".projectNamePipeline").val(""); 
+    
+    console.log("id : "+ id);
     console.log(nameProject);
-    fetch("http://127.0.0.1:5000/audit_count/"+id+"")
+    $('.loader-wrapper').addClass('is-active');
+    fetch(`http://127.0.0.1:5000/audit_count/${id}`)
         // fetch('./assets/data/projets.json')
         .then(response => response.json())
         .then(data => {
             console.log(data)
-            //const obj = data.projects.find(data => data.id == id)
            $(".projectNameA").val(nameProject);
            $(".projectNombreJobs").val(data.countjob);
            $(".projectNombreApp").val(data.countapp);
            $(".projectNamePipeline").val(data.countpipeline);
-        })
-    $("#ctrl-modal-audit").addClass("is-active");
+        }).finally(() => $('.loader-wrapper').removeClass('is-active'))
+        .catch(err => console.log(err))
+        $("#ctrl-modal-audit").addClass("is-active")
+        
 }

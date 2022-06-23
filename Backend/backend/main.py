@@ -10,7 +10,7 @@ def index():
     return "Hello world !!!!!"
 
 
-@app.route('/test/<string:idproject>')
+@app.route('/test')
 def a():
     projects = saagie.API.projects.list()
     for  project in projects['projects']:

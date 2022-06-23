@@ -15,25 +15,17 @@ def index():
 
 @app.route('/test')
 def a():
-    projects = saagie.API.jobs.create(
-        job_name="my job",
-        project_id="db844ca5-4041-4661-917d-0ba8ea6dd086",
-        category='Processing')
+    projects = saagie.API.projects.list()
     return projects
 
 
-#fonction permett
-def length_list(liste):
+
+def length_list(list):
     count = 0
-    if isinstance(liste, list):
-        if len(liste) == 0:
-           count = 0
-        else:
-           for item in liste:
-              count += 1
-    else:
+    if len(list) == 0:
         count = 0
-    
+    else :
+        count = len(list)
     return count
     
 def list_dict(dict_list):

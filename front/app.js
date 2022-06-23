@@ -1,7 +1,6 @@
 const getList = () => {
     $("tbody tr").remove();
     fetch('http://127.0.0.1:5000/test')
-        // fetch('./assets/data/projets.json')
         .then(response => response.json())
         .then(data => {
             $(data.projects).each(function (index) {
@@ -26,8 +25,6 @@ const getList = () => {
 }
 
 const copyProject = () => {
-    console.log($(".projectNameOld").val())
-    console.log($(".projectNameNew").val())
 
     if ($(".projectNameOld").val() == $(".projectNameNew").val()) {
         alert("Attention c'est le même nom");
@@ -35,13 +32,6 @@ const copyProject = () => {
         alert("Votre copie a été crée");
     }
 
-
-    // save in base
-
-
-    //close modal
-    //$("#ctrl-modal-copy").removeClass("is-active");
-    // refresh table
     getList();
 }
 const let_audit = (id) => {
@@ -52,10 +42,8 @@ const let_audit = (id) => {
 const auditRender = () => {
 
     $(".auditx").on("click", function (event) {
-        var id = $(this).data('id');
         var dataId = $(this).attr("data-id");
         var dataName = $(this).attr("data-name");
-        console.log("The data-id of clicked item is: " + dataId + " " + id);
         audit(dataId, dataName);
     });
 }

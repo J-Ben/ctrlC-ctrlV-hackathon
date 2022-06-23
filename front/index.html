@@ -76,38 +76,7 @@
                     </thead>
 
                     <tbody>
-                        <!-- <tr>
-                        <th>1</th>
-                        <td>8321e13c-892a-4481-8552-5be4b6cc5df4</td>
-                        <td>Regina</td>
-                        <td>
-                            <button id="dxt" class="button is-ctrl-no-border
-                                    js-modal-trigger" data-target="ctrl-modal-copy">
-                                <span class="icon is-small is-ctrl-color">
-                                    <i class="fa-regular fa-copy"></i>
-                                </span>
-                            </button>
-                            <button class="button">
-                                <span class="icon is-small is-ctrl-color">
-                                    <i class="fa-solid fa-download"></i>
-                                </span>
-                            </button>
-                            <button class="button is-ctrl-no-border
-                                js-modal-trigger" data-target="ctrl-modal-restore">
-                                <span class="icon is-small
-                                        is-ctrl-color">
-                                    <i class="fa-solid
-                                            fa-arrows-rotate"></i> </span>
-                            </button>
-
-                            <button id="test" class="button is-ctrl-no-border
-                                js-modal-trigger" data-target="ctrl-modal-audit">
-                                <span class="icon is-small
-                                        is-ctrl-color">
-                                    <i class="fa-solid fa-circle-info"></i>
-                            </button>
-                        </td>
-                    </tr> -->
+                       
                     </tbody>
                 </table>
             </div>
@@ -274,12 +243,6 @@
                              
                         </div>
                     </div>
-                    <!-- <div class="field">
-                    <label class="label">Nombre de variables d'environnement</label>
-                    <div class="control">
-                        <input class="input is-ctrl-input" type="text" placeholder="Text input" disabled>
-                    </div>
-                </div> -->
                 </section>
                 <footer class="modal-card-foot field is-grouped
                     is-grouped-right">
@@ -302,17 +265,10 @@
                 console.log("The data-id of clicked item is: " + dataId + " " + id);
             })
         }
-        $(document).ready(function () {
-
-            /* $("#test").click(function(){
-              $.get("http://127.0.0.1:5000/test", function(data, status){
-                alert("Data: " + data + "\nStatus: " + status);
-              });
-            }); */
+        $(document).ready(function () {           
             $('.loader-wrapper').addClass('is-active');
             let url = "https://demo-workspace.a4.saagie.io/projects/api/platform/2/project/";
             fetch('http://127.0.0.1:5000/test')
-            // fetch('./assets/data/projets.json')
                 .then(response => response.json())
                 .then(data => {
                     

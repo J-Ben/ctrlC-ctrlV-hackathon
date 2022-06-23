@@ -1,3 +1,16 @@
+###############################################
+
+#cette bibliothe contient toutes nos fonctions 
+# pour attaquer l'api saaagi
+
+#auteurs : Ben-J ; Marlyse; Landry; Francois ; Djimmy ; Elie
+
+# 2022-06-23
+
+###############################################
+
+
+
 from pydoc import resolve
 from flask import Flask
 import os
@@ -24,14 +37,21 @@ def a():
     return projects
 
 
-
-def length_list(list):
+#fonction permettant de recuperer la taille d'une liste
+def length_list(liste):
     count = 0
-    if len(list) == 0:
+    if isinstance(liste, list):
+        if len(liste) == 0:
+           count = 0
+        else:
+           for item in liste:
+              count += 1
+    else:
         count = 0
-    else :
-        count = len(list)
+        
     return count
+
+
 @app.route('/clone', methods = ['POST'])
 def clone():
     
@@ -40,16 +60,31 @@ def clone():
     respo = cloneHandler.handler(name, projectId)
     return respo
     
+    return count
+#Fonction permettant de parcourir un dictionnaire    
 def list_dict(dict_list):
     k = 0
     for v in dict_list.values():
         length_list(v)
         k = length_list(v)
     return k
+    
+#Fonction permettant de parcourir 2 dictionnaire    
+def list_dictpipe(dict_list):
+    k = 0
+    for v in dict_list.values():
+        if isinstance(v, dict):
+            for u in v.values():
+              length_list(u)
+              k = length_list(u)
+    return {"": k}
+    
+    
 @app.route('/countpipe/<string:proj_id>',  methods=['GET'])   
 def get_lis_pipe(proj_id):
     appsinfo = saagie.API.pipelines.list_for_project(proj_id)
-    return appsinfo
+    listp = list_dictpipe(appsinfo)
+    return listp
 
 
 @app.route('/audit_count/<string:proj_id>')
@@ -60,7 +95,7 @@ def count_all(proj_id):
     dic_lisjb = jobsinfo
     dic_lisap = appsinfo
     dic_lispp = pipelineinfo
-    return {'countjob': list_dict(dic_lisjb),'countpipeline': list_dict(dic_lispp), 'countapp': list_dict(dic_lisap)} 
+    return {'countjob': list_dict(dic_lisjb),'countpipeline': list_dictpipe(dic_lispp), 'countapp': list_dict(dic_lisap)} 
 
 @app.route('/appinfo/<string:proj_id>',  methods=['GET'])   
 def get_info_app(proj_id):

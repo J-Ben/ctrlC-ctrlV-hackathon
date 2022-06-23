@@ -1,5 +1,10 @@
 from flask import Flask
+import json
 import variables.saagie as saagie
+from flask import request
+import controllers.clone as cloneHandler
+import variables.request as configAPI
+
 
 app = Flask(__name__)
 
@@ -8,10 +13,13 @@ def index():
     return "Hello world !!!!!"
 
 
-@app.route('/test')
-def a():
-    projects = saagie.API.projects.list()
-    return projects
+@app.route('/clone', methods = ['POST'])
+def clone():
+    
+    name = request.form['name']
+    projectId = request.form['id']
+    respo = cloneHandler.handler(name, projectId)
+    return respo
     
 
 

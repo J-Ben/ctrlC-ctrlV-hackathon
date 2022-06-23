@@ -19,7 +19,7 @@ def a():
     return projects
 
 
-
+#fonction permett
 def length_list(list):
     count = 0
     for item in list:

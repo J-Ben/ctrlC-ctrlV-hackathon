@@ -17,12 +17,15 @@ import os
 from flask import request, jsonify, make_response
 import variables.saagie as saagie
 from flask_cors import CORS
+<<<<<<< HEAD
 import json
 import variables.saagie as saagie
 from flask import request
 import controllers.clone as cloneHandler
 import variables.request as configAPI
 
+=======
+>>>>>>> 4545fd28fd583f5846ff2e1ffb230ca4e8f31364
 
 app = Flask(__name__)
 CORS(app)

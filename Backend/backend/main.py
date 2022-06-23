@@ -15,7 +15,10 @@ def index():
 
 @app.route('/test')
 def a():
-    projects = saagie.API.projects.list()
+    projects = saagie.API.jobs.create(
+        job_name="my job",
+        project_id="db844ca5-4041-4661-917d-0ba8ea6dd086",
+        category='Processing')
     return projects
 
 
@@ -23,9 +26,9 @@ def a():
 def length_list(list):
     count = 0
     if len(list) == 0:
-        
-        for item in list:
-            count += 1
+        count = 0
+    else :
+        count = len(list)
     return count
     
 def list_dict(dict_list):
